@@ -1,0 +1,20 @@
+# Template file for 'vorta'
+pkgname=vorta
+version=0.11.5
+revision=1
+build_style=python3-pep517
+hostmakedepends="python3-setuptools"
+depends="borg python3-packaging python3-peewee python3-platformdirs
+ python3-psutil python3-pyqt6  python3-pyqt6-gui python3-pyqt6-widgets python3-pyqt6-network
+ python3-pyqt6-devel-tools python3-SecretStorage"
+short_desc="Desktop Backup Client for Borg Backup"
+maintainer="Giuseppe <capassog97@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/borgbase/vorta"
+changelog="https://github.com/borgbase/vorta/releases"
+distfiles="https://github.com/borgbase/vorta/archive/refs/tags/v${version}.tar.gz"
+checksum=70c307a98edea4312d6ed10eb55fb6cf0510200baa191e6c34819910ce746cef
+
+post_install() {
+	vinstall src/vorta/assets/metadata/com.borgbase.Vorta.desktop 644 usr/share/applications
+}
